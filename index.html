@@ -1,0 +1,120 @@
+<!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>CodingWithSardor — O'quv platforma</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--p:#4f46e5;--p2:#06b6d4;--m:#64748b;--b:#e6e8f5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:#f5f7ff;color:#0f172a;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+#app{display:flex;min-height:100vh}aside{width:230px;background:#fff;border-right:1px solid var(--b);padding:16px 12px;position:sticky;top:0;height:100vh;overflow:auto;flex-shrink:0}
+.logo{font-weight:800;font-size:18px;display:flex;gap:8px;align-items:center;margin:4px 8px 14px}
+.nv{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border:0;background:none;border-radius:12px;font-size:15px;cursor:pointer;color:#334155;transition:.25s;text-align:left}
+.nv:hover{background:#eef0ff;transform:translateX(4px)}.nv.on{background:linear-gradient(135deg,#4f46e5,#06b6d4);color:#fff;box-shadow:0 8px 20px #4f46e544}
+.ic{font-size:26px;display:inline-block;animation:fl 2.4s ease-in-out infinite;filter:drop-shadow(0 4px 4px #0002)}.nv:hover .ic{animation:sp .8s}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-5px) rotate(6deg)}}@keyframes sp{to{transform:rotate(360deg) scale(1.3)}}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+main{flex:1;padding:24px;min-width:0;animation:pop .4s}h2{margin:0 0 16px;font-size:26px}h3{margin:22px 0 10px}
+.card{background:#fff;border:1px solid var(--b);border-radius:18px;padding:18px;box-shadow:0 1px 2px #0f172a0a,0 8px 24px #4f46e50d;transition:.3s;animation:pop .45s backwards}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px #4f46e522;border-color:#c7cbff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.m{color:var(--m);font-size:14px}.big{font-size:64px;text-align:center;animation:fl 2.4s infinite}
+.btn{position:relative;overflow:hidden;border:0;padding:11px 22px;border-radius:12px;color:#fff;font-weight:600;font-size:15px;cursor:pointer;background:linear-gradient(135deg,#4f46e5,#06b6d4);box-shadow:0 6px 18px #4f46e544;transition:.3s}
+.btn::after{content:"";position:absolute;top:0;left:-90%;width:60%;height:100%;background:linear-gradient(90deg,transparent,#fff9,transparent);transform:skewX(-20deg);transition:.6s}
+.btn:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 12px 26px #4f46e566}.btn:hover::after{left:140%}.btn:active{transform:scale(.96)}
+.btn.red{background:linear-gradient(135deg,#ef4444,#f97316);box-shadow:0 6px 18px #ef444444}.btn.ghost{background:#eef0ff;color:var(--p);box-shadow:none}
+input,select,textarea{width:100%;padding:11px 14px;border:1.5px solid var(--b);border-radius:12px;font:inherit;background:#fff;margin:5px 0;outline:0;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--p);box-shadow:0 0 0 4px #4f46e51f}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{border:1.5px solid var(--b);background:#fff;padding:9px 18px;border-radius:99px;cursor:pointer;font-weight:600;transition:.25s}
+.tab:hover{transform:translateY(-2px)}.tab.on{background:var(--p);color:#fff;border-color:var(--p)}
+.lg{min-height:100vh;display:grid;place-items:center;padding:16px;background:radial-gradient(circle at 20% 10%,#dbe4ff,transparent 45%),radial-gradient(circle at 85% 90%,#cffafe,transparent 45%),#f5f7ff}
+.lgc{width:min(420px,100%)}.lgc h1{text-align:center;margin:0}.lgc p{text-align:center}
+.vid{width:100%;max-height:60vh;background:#0f172a;border-radius:14px;aspect-ratio:16/9}
+.bar{height:14px;border-radius:99px;background:#eef0ff;overflow:hidden}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#4f46e5,#06b6d4);animation:gr 1s}
+@keyframes gr{from{width:0}}
+.opt{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;cursor:pointer}.opt:hover{background:#eef0ff}.opt input{width:auto;margin:0}
+.msg{max-width:78%;padding:10px 14px;border-radius:16px;margin:6px 0;background:#eef0ff;animation:pop .3s}.msg.me{margin-left:auto;background:linear-gradient(135deg,#4f46e5,#06b6d4);color:#fff}
+.tag{font-size:12px;padding:3px 10px;border-radius:99px;background:#eef0ff;color:var(--p);font-weight:600}
+table{width:100%;border-collapse:collapse}td,th{padding:9px;border-bottom:1px solid var(--b);text-align:left}
+img.md,video.md{width:100%;border-radius:12px;aspect-ratio:16/10;object-fit:cover;background:#0f172a}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:12px 22px;border-radius:12px;opacity:0;pointer-events:none;transition:.3s;z-index:9}#toast.on{opacity:1}
+@media(max-width:760px){#app{flex-direction:column}aside{width:100%;height:auto;position:sticky;z-index:5;display:flex;overflow-x:auto;padding:8px;gap:4px}.logo,.nv span.t{display:none}.nv{width:auto;flex-shrink:0;padding:8px 10px}main{padding:14px}}
+#app{min-height:100vh;min-height:100dvh}.lg{flex:1;width:100%;min-height:100vh;min-height:100dvh}
+main{width:100%;max-width:1200px;margin:0 auto}
+.grid{grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr))}
+input,select,textarea{font-size:16px}
+.card table{display:block;overflow-x:auto;white-space:nowrap}
+@media(min-width:1400px){aside{width:260px}main{padding:32px}}
+@media(max-width:760px){h2{font-size:22px}.msg{max-width:92%}.row .btn{flex:1 1 auto}.vid{max-height:45vh}aside{-webkit-overflow-scrolling:touch}.tabs{gap:6px}.tab{padding:8px 14px}.card{padding:14px}.big{font-size:52px}#toast{width:90%;text-align:center}}
+</style></head><body><div id="app"></div><div id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),mem={};
+const S={g(k,d){try{const v=localStorage.getItem('cws_'+k);if(v)return JSON.parse(v)}catch(e){}return k in mem?mem[k]:d},s(k,v){mem[k]=v;try{localStorage.setItem('cws_'+k,JSON.stringify(v))}catch(e){toast('Xotira to‘ldi (fayl katta). Havola (URL) ishlating.')}}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2600)}
+const LES0={HTML:[['Teglar va sahifa tuzilmasi','doctype, head, body, h1, p, a teglari bilan birinchi sahifa.'],['Forma va input','form, input, button yordamida foydalanuvchidan ma’lumot olish.'],['Semantik teglar','header, nav, main, section, footer — to‘g‘ri tuzilma.']],
+JS:[['O‘zgaruvchilar va turlar','let, const, string, number, boolean.'],['Funksiyalar va massivlar','function, arrow function, map, filter.'],['DOM va hodisalar','querySelector, addEventListener, sahifani o‘zgartirish.']],
+Vue:[['Vue nima? Birinchi ilova','createApp, {{ }} interpolatsiya, ref.'],['Direktivlar','v-if, v-for, v-model, @click.'],['Komponentlar','props, emit va qayta ishlatiladigan komponentlar.']]};
+const SEC=Object.keys(LES0);
+const MORE={HTML:[[['CSS bilan bezash','style, class, id, ranglar va shriftlar.'],['Flexbox','justify-content, align-items bilan joylashtirish.'],['Grid','grid-template-columns bilan setka.']],[['Responsive dizayn','media query va viewport.'],['Animatsiya','transition va @keyframes.'],['Portfolio sayt','O‘z portfolio sahifangizni yig‘ing.']]],
+JS:[[['Shartlar va sikllar','if, switch, for, while.'],['Obyektlar','kalit-qiymat, destructuring, spread.'],['Massiv metodlari','reduce, find, sort.']],[['Async va fetch','Promise, async/await, API bilan ishlash.'],['Xatolarni ushlash','try/catch va debugging.'],['Mini loyiha','To-Do ilova yozing.']]],
+Vue:[[['Computed va watch','Hisoblanadigan qiymatlar va kuzatuvchilar.'],['Hayot sikli','onMounted, onUnmounted.'],['Router','Sahifalar orasida yo‘naltirish.']],[['Pinia','Umumiy holat boshqaruvi.'],['API bilan ishlash','fetch va axios.'],['Yakuniy loyiha','To‘liq Vue ilova.']]]};
+const lvData=(s,l)=>l==0?LES0[s]:MORE[s][l-1]||[['Amaliy loyiha #'+(l-2),'Bilganlaringizni yangi mustaqil loyihada mustahkamlang.'],['Kod sharhi #'+(l-2),'O‘z kodingizni tahlil qilib, yaxshilang.'],['Chaqiruv #'+(l-2),'Qiyinroq masalani yeching.']];
+const lvCur=()=>(S.g('lvl',{})[U.code]||{})[ls]||0;
+const T0={HTML:[{q:'Eng katta sarlavha qaysi teg?',o:['<h6>','<h1>','<head>','<title>'],a:1},{q:'Havola yaratuvchi teg?',o:['<a>','<link>','<p>','<img>'],a:0}],
+JS:[{q:'O‘zgarmas qiymat e’loni?',o:['var','let','const','def'],a:2},{q:'Massivni o‘zgartirib yangi massiv qaytaradi?',o:['forEach','map','push','pop'],a:1}],
+Vue:[{q:'Ikki tomonlama bog‘lash direktivasi?',o:['v-if','v-for','v-model','v-show'],a:2},{q:'Ro‘yxatni chizish direktivasi?',o:['v-for','v-on','v-bind','v-else'],a:0}]};
+let U=S.g('ses',null),cur='live',ls='HTML',vw={},ts='HTML',lr='student',stream=null,rec=null,chunks=[],recs=[],chatSel='';
+const users=()=>S.g('users',[]),tests=()=>S.g('tests',T0);
+const NAV=[['live','🔴','Jonli efir'],['lessons','📚','Darslar'],['tests','📝','Testlar'],['rank','🏆','Reyting'],['chat','💬','Ustoz bilan chat'],['photos','🖼️','Rasmlar'],['movies','🎬','Kinolar'],['contact','📨','Admin bilan aloqa']];
+function showLogin(){$('#app').innerHTML=`<div class="lg"><div class="card lgc"><div class="big">🚀</div><h1>CodingWithSardor</h1><p class="m">Kirish turini tanlang</p><div class="tabs">${[['admin','🛡️ Admin'],['teacher','👨‍🏫 Ustoz'],['student','🎓 O‘quvchi']].map(([r,l])=>`<button class="tab ${lr==r?'on':''}" onclick="lr='${r}';showLogin()">${l}</button>`).join('')}</div>${lr=='admin'?'<input id="a1" placeholder="Login" autocomplete="off"><input id="a2" type="password" placeholder="Parol">':'<input id="a1" maxlength="4" inputmode="numeric" placeholder="4 xonali kod">'}<div class="row"><button class="btn" onclick="doLogin()">Kirish</button></div></div></div>`}
+function doLogin(){const a=$('#a1').value.trim();let u=null;
+if(lr=='admin'){if(a=='lsokovv'&&$('#a2').value=='codingwithsardor')u={role:'admin',name:'Admin',code:'admin'}}
+else{const f=users().find(x=>x.code==a&&x.role==lr);if(f)u={role:f.role,name:f.name,code:f.code}}
+if(!u)return toast('Login yoki kod noto‘g‘ri');U=u;S.s('ses',U);cur='live';shell()}
+function logout(){killPeer();U=null;S.s('ses',null);showLogin()}
+function shell(){const nav=NAV.concat(U.role=='admin'?[['admin','🛡️','Admin panel']]:[]);
+$('#app').innerHTML=`<aside><div class="logo"><span class="ic">🚀</span>CodingWithSardor</div>${nav.map(([id,i,t])=>`<button class="nv ${cur==id?'on':''}" onclick="go('${id}')"><span class="ic">${i}</span><span class="t">${t}</span></button>`).join('')}<button class="nv" onclick="logout()"><span class="ic">🚪</span><span class="t">Chiqish (${esc(U.name)})</span></button></aside><main id="v"></main>`;draw()}
+function go(id){cur=id;shell()}
+function draw(){$('#v').innerHTML=V[cur]();if(cur=='live'){const v=$('#lv');if(stream)v.srcObject=stream;else if(rs)v.srcObject=rs;watch()}}
+const staff=()=>U.role!='student';
+const V={
+live(){return`<h2>🔴 Jonli efir</h2><div class="card"><video id="lv" class="vid" autoplay playsinline muted></video><div class="row">${staff()?`<button class="btn" onclick="startLive()">▶ Efirni boshlash</button><button class="btn red" onclick="stopLive()">■ To‘xtatish va yozib olish</button>`:'<span class="m" id="st">⏳ Ustoz efirni boshlashini kutyapmiz…</span><button class="btn ghost" onclick="unmute()">🔊 Ovozni yoqish</button>'}</div><p class="m">Brauzer kamera va mikrofon uchun ruxsat so‘raydi — “Ruxsat berish”ni bosing.</p></div><h3>📼 Yozuvlar</h3><div class="grid">${recs.map(r=>`<div class="card"><video class="md" controls src="${r}"></video></div>`).join('')||'<p class="m">Hozircha yozuv yo‘q.</p>'}</div>`},
+lessons(){const done=S.g('prog',{})[U.code]||[],cl=lvCur(),vl=Math.min(vw[ls]??cl,cl),L=lvData(ls,vl),all=L.every((_,i)=>done.includes(ls+'-'+vl+'-'+i));
+return`<h2>📚 Darslar</h2><div class="tabs">${SEC.map(s=>`<button class="tab ${ls==s?'on':''}" onclick="ls='${s}';draw()">${s}</button>`).join('')}</div><div class="tabs">${Array.from({length:cl+1},(_,i)=>`<button class="tab ${vl==i?'on':''}" onclick="vw[ls]=${i};draw()">🎚️ ${i+1}-daraja</button>`).join('')}</div><div class="grid">${L.map((l,i)=>{const id=ls+'-'+vl+'-'+i,d=done.includes(id);return`<div class="card" style="animation-delay:${i*.08}s"><div class="big" style="font-size:44px">${['🧩','⚡','🎯'][i]}</div><h3 style="margin:6px 0">${i+1}. ${esc(l[0])}</h3><p class="m">${esc(l[1])}</p><button class="btn ${d?'ghost':''}" onclick="prog('${id}')">${d?'✅ O‘zlashtirildi':'O‘zlashtirdim'}</button></div>`}).join('')}</div>${all&&vl==cl?`<div class="card" style="margin-top:16px;text-align:center"><div class="big">🎉</div><h3>${cl+1}-daraja tugadi!</h3><p class="m">Keyingi darajaga o‘tasizmi?</p><div class="row" style="justify-content:center"><button class="btn" onclick="nextLv()">Ha, o‘tish 🚀</button><button class="btn ghost" onclick="toast('Tayyor bo‘lganingizda o‘ting')">Hozir emas</button></div></div>`:''}`},
+tests(){const t=tests()[ts]||[];return`<h2>📝 Testlar</h2><div class="tabs">${SEC.map(s=>`<button class="tab ${ts==s?'on':''}" onclick="ts='${s}';draw()">${s} test</button>`).join('')}</div>${t.map((q,i)=>`<div class="card" style="margin-bottom:12px"><b>${i+1}. ${esc(q.q)}</b>${q.o.map((o,j)=>`<label class="opt"><input type="radio" name="q${i}" value="${j}">${esc(o)}</label>`).join('')}</div>`).join('')||'<p class="m">Bu bo‘limda test yo‘q.</p>'}${t.length?'<button class="btn" onclick="check()">✔ Tekshirish</button>':''}<div id="res" class="m" style="margin-top:12px;font-size:18px"></div>${staff()?`<h3>➕ Test qo‘shish</h3><div class="card"><select id="ns">${SEC.map(s=>`<option>${s}</option>`).join('')}</select><input id="nq" placeholder="Savol"><input class="no" placeholder="Variant A"><input class="no" placeholder="Variant B"><input class="no" placeholder="Variant C"><input class="no" placeholder="Variant D"><select id="na"><option value="0">To‘g‘ri javob: A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select><button class="btn" onclick="addTest()">Qo‘shish</button></div>`:''}`},
+rank(){const res=S.g('res',{}),pg=S.g('prog',{}),st=users().filter(u=>u.role=='student').map(u=>{const r=Object.values(res[u.code]||{});return{n:u.name,avg:r.length?Math.round(r.reduce((a,b)=>a+b,0)/r.length):0,l:(pg[u.code]||[]).length}}).sort((a,b)=>b.avg-a.avg);
+return`<h2>🏆 O‘quvchilar reytingi</h2><div class="card">${st.map((s,i)=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between"><b>${['🥇','🥈','🥉'][i]||i+1+'.'} ${esc(s.n)}</b><span class="m">${s.avg}% · ${s.l} dars</span></div><div class="bar"><i style="width:${s.avg}%"></i></div></div>`).join('')||'<p class="m">O‘quvchilar hali qo‘shilmagan.</p>'}</div>`},
+chat(){const all=S.g('chat',[]),us=users().filter(u=>u.role=='student'),sc=U.role=='student'?U.code:(chatSel||(us[0]||{}).code),m=all.filter(x=>x.sc==sc);
+return`<h2>💬 Ustoz bilan chat</h2>${staff()?`<select onchange="chatSel=this.value;draw()">${us.map(u=>`<option value="${u.code}" ${u.code==sc?'selected':''}>${esc(u.name)}</option>`).join('')}</select>`:''}<div class="card" style="min-height:280px">${m.map(x=>`<div class="msg ${x.r==U.role||(x.r!='student'&&staff())?'me':''}"><small>${esc(x.n)}</small><br>${esc(x.t)}</div>`).join('')||'<p class="m">Xabar yo‘q.</p>'}</div><div class="row"><input id="ct" placeholder="Xabar yozing..." style="flex:1" onkeydown="if(event.key=='Enter')sendChat('${sc}')"><button class="btn" onclick="sendChat('${sc}')">Yuborish</button></div>`},
+photos(){return media('photos','🖼️ Rasmlar')},movies(){return media('movies','🎬 Kinolar (dam olish uchun)')},
+contact(){const c=S.g('compl',[]);return U.role=='admin'?`<h2>📨 Xabar va shikoyatlar</h2>${c.map(x=>`<div class="card" style="margin-bottom:10px"><span class="tag">${x.k}</span> <b>${esc(x.n)}</b><p>${esc(x.t)}</p></div>`).join('')||'<p class="m">Xabar yo‘q.</p>'}`:`<h2>📨 Admin bilan bog‘lanish</h2><div class="card"><select id="ck"><option>Aloqa</option><option>Shikoyat</option></select><textarea id="cm" rows="5" placeholder="Xabaringiz..."></textarea><button class="btn" onclick="sendC()">Yuborish</button></div>`},
+admin(){const us=users();return`<h2>🛡️ Admin panel</h2><div class="card"><b>Yangi foydalanuvchi va 4 xonali kod</b><input id="un" placeholder="Ismi"><select id="ur"><option value="student">O‘quvchi</option><option value="teacher">Ustoz</option></select><button class="btn" onclick="addUser()">Kod yaratish</button></div><h3>Foydalanuvchilar</h3><div class="card"><table><tr><th>Ism</th><th>Rol</th><th>Kod</th><th></th></tr>${us.map((u,i)=>`<tr><td>${esc(u.name)}</td><td>${u.role=='student'?'O‘quvchi':'Ustoz'}</td><td><b>${u.code}</b></td><td><button class="btn red" onclick="delUser(${i})">×</button></td></tr>`).join('')}</table></div>`}};
+function media(k,title){const it=S.g(k,[]);return`<h2>${title}</h2>${U.role=='admin'?`<div class="card" style="margin-bottom:16px"><input id="mt" placeholder="Nomi"><input id="mu" placeholder="Havola (URL) yoki quyidan fayl tanlang"><input id="mf" type="file" accept="${k=='photos'?'image/*':'video/*'}"><button class="btn" onclick="addMedia('${k}')">Qo‘shish</button></div>`:''}<div class="grid">${it.map((x,i)=>`<div class="card">${k=='photos'?`<img class="md" src="${esc(x.src)}" alt="">`:`<video class="md" controls src="${esc(x.src)}"></video>`}<b>${esc(x.t)}</b>${U.role=='admin'?` <button class="btn red" style="padding:4px 12px" onclick="delMedia('${k}',${i})">×</button>`:''}</div>`).join('')||'<p class="m">Hozircha bo‘sh.</p>'}</div>`}
+function addMedia(k){const t=$('#mt').value.trim()||'Nomsiz',u=$('#mu').value.trim(),f=$('#mf').files[0],push=src=>{const a=S.g(k,[]);a.push({t,src});S.s(k,a);draw()};
+if(f){const r=new FileReader();r.onload=()=>push(r.result);r.readAsDataURL(f)}else if(u)push(u);else toast('Havola yoki fayl kiriting')}
+function delMedia(k,i){const a=S.g(k,[]);a.splice(i,1);S.s(k,a);draw()}
+function addUser(){const n=$('#un').value.trim();if(!n)return toast('Ismni kiriting');const a=users();let c;do c=String(1000+Math.floor(Math.random()*9000));while(a.some(u=>u.code==c));a.push({name:n,role:$('#ur').value,code:c});S.s('users',a);toast('Kod: '+c);draw()}
+function delUser(i){const a=users();a.splice(i,1);S.s('users',a);draw()}
+function prog(id){const p=S.g('prog',{}),a=p[U.code]||[],i=a.indexOf(id);i<0?a.push(id):a.splice(i,1);p[U.code]=a;S.s('prog',p);draw()}
+function check(){const t=tests()[ts];let ok=0;t.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`);if(c&&+c.value==q.a)ok++});const pc=Math.round(ok/t.length*100);const r=S.g('res',{});(r[U.code]=r[U.code]||{})[ts]=pc;S.s('res',r);$('#res').innerHTML=`🎯 Natija: ${ok}/${t.length} (${pc}%)`}
+function addTest(){const q=$('#nq').value.trim(),o=[...document.querySelectorAll('.no')].map(e=>e.value.trim());if(!q||o.some(x=>!x))return toast('Hammasini to‘ldiring');const s=$('#ns').value,t=tests();(t[s]=t[s]||[]).push({q,o,a:+$('#na').value});S.s('tests',t);ts=s;toast('Test qo‘shildi ✅');draw()}
+function sendChat(sc){const v=$('#ct').value.trim();if(!v||!sc)return;const a=S.g('chat',[]);a.push({sc,r:U.role,n:U.name,t:v});S.s('chat',a);draw()}
+function sendC(){const v=$('#cm').value.trim();if(!v)return;const a=S.g('compl',[]);a.push({k:$('#ck').value,n:U.name,t:v});S.s('compl',a);$('#cm').value='';toast('Yuborildi ✅')}
+function nextLv(){const l=S.g('lvl',{}),c=lvCur();(l[U.code]=l[U.code]||{})[ls]=c+1;S.s('lvl',l);vw[ls]=c+1;toast((c+2)+'-daraja ochildi 🚀');draw()}
+const LIVE_ID='cws-sardor-live-2026';let peer=null,calls=[],rs=null,retry=null;
+function killPeer(){clearTimeout(retry);try{peer&&peer.destroy()}catch(e){}peer=null;rs=null;calls=[]}
+function st(t){const e=$('#st');if(e)e.textContent=t}
+function unmute(){const v=$('#lv');v.muted=false;v.play&&v.play()}
+function tryConn(){clearTimeout(retry);if(cur!='live'||rs||!peer||!peer.open)return;peer.connect(LIVE_ID);retry=setTimeout(tryConn,6000)}
+function watch(){if(U.role!='student')return;if(!window.Peer)return st('⚠️ Efir moduli yuklanmadi (internetni tekshiring)');
+if(!peer){peer=new Peer();peer.on('call',c=>{c.answer();c.on('stream',s=>{rs=s;const v=$('#lv');if(v){v.srcObject=s;v.play&&v.play()}st('🔴 Efir jonli')});c.on('close',()=>{rs=null;const v=$('#lv');if(v)v.srcObject=null;st('⏳ Efir tugadi. Yangisini kutyapmiz…');tryConn()})});peer.on('error',e=>{if(e.type=='peer-unavailable')st('⏳ Ustoz efirni boshlashini kutyapmiz…')});peer.on('open',tryConn)}else if(rs)st('🔴 Efir jonli');else tryConn()}
+async function startLive(){
+if(!navigator.mediaDevices)return toast('Kamera faqat https havolada ishlaydi (masalan Netlify).');
+if(stream)return toast('Efir allaqachon yoqilgan');
+try{stream=await navigator.mediaDevices.getUserMedia({video:true,audio:true})}catch(e){try{stream=await navigator.mediaDevices.getUserMedia({video:true})}catch(e2){return toast(e2.name=='NotAllowedError'?'Ruxsat berilmadi: manzil qatoridagi 🔒 belgisidan kamerani yoqing':e2.name=='NotFoundError'?'Kamera topilmadi':'Kamera ochilmadi ('+e2.name+')')}}
+$('#lv').srcObject=stream;chunks=[];
+try{rec=new MediaRecorder(stream);rec.ondataavailable=e=>chunks.push(e.data);rec.onstop=()=>{recs.unshift(URL.createObjectURL(new Blob(chunks,{type:rec.mimeType||'video/webm'})));fin()};rec.start()}catch(e){rec=null}
+if(window.Peer){killPeer();peer=new Peer(LIVE_ID);peer.on('connection',c=>{c.on('open',()=>calls.push(peer.call(c.peer,stream)))});peer.on('error',e=>toast(e.type=='unavailable-id'?'Efir boshqa qurilmada yoqilgan (uni to‘xtating)':'Ulanish xatosi: '+e.type))}else toast('Efir faqat sizda ko‘rinadi (modul yuklanmadi)');
+toast('Efir boshlandi 🔴')}
+function fin(){stream&&stream.getTracks().forEach(t=>t.stop());stream=null;killPeer();draw()}
+function stopLive(){if(!stream)return toast('Efir yoqilmagan');if(rec&&rec.state!='inactive')rec.stop();else fin()}
+U?shell():showLogin();
+</script></body></html>
